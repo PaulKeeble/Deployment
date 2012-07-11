@@ -21,12 +21,12 @@
 	<!--
 	Keys can be generated using the embassy-tools keygen command.
 	-->
-	<!--
-	<Parameter name="embassy.key.enc" value="" />
-	<Parameter name="embassy.key.mac" value="" />
-	<Parameter name="mps.key.enc" value="" />
-	<Parameter name="mps.key.mac" value="" />
-	-->
+
+	<Parameter name="embassy.key.enc" value="{{ embassy_key_enc }}" />
+	<Parameter name="embassy.key.mac" value="{{ embassy_key_mac }}" />
+	<Parameter name="mps.key.enc" value="{{ mps_key_enc }}" />
+	<Parameter name="mps.key.mac" value="{{ mps_key_enc }}" />
+	
 	
 	<!-- 
         Timeout values for LDAP connectivity.
@@ -36,18 +36,18 @@
      <Parameter name="embassy.ldap.authenticate.read.timout.millis" value="5000"/>
      <Parameter name="embassy.ldap.authenticate.connect.timout.millis" value="5000"/>
 
-     <Parameter name="embassy.ldapservice.trustStore.path" value="@@EMBASSY_TRUSTSTORE_PATH@@"/>
-     <Parameter name="embassy.ldapservice.trustStore.password" value="@@EMBASSY_TRUSTSTORE_PASSWORD@@"/>
-     <Parameter name="embassy.ldapservice.trustStore.privateKey.password" value="@@EMBASSY_PRIVATEKEY_PASSWORD@@"/>
+     <Parameter name="embassy.ldapservice.trustStore.path" value="{{ embassy_trustStore_path }}"/>
+     <Parameter name="embassy.ldapservice.trustStore.password" value="{{ embassy_trustStore_password }}"/>
+     <Parameter name="embassy.ldapservice.trustStore.privateKey.password" value="{{ embassy_trustStore_private_password }}"/>
 
      <Parameter name="embassy.one.time.key.email.reply.address" value="noreply@scansafe.net"/>
      <Parameter name="embassy.one.time.key.expiry.time.seconds" value="600"/>
 
      
 	<!-- This should contain a short (<16 chars) DC identifier, e.g. LON3 -->
-	<!--<Parameter name="embassy.datacentre" value="" />-->
+	<Parameter name="embassy.datacentre" value="{{ embassy_datacentre }}" />
 	
-	<Parameter name="smtp.hostname" value="@@SMTP_HOSTNAME@@" />
-	<Parameter name="smtp.port" value="@@SMTP_PORT@@" />
+	<Parameter name="smtp.hostname" value="{{ smpt_hostname }}" />
+	<Parameter name="smtp.port" value="{{ smtp_port }}" />
      
 </Context>

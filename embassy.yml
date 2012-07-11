@@ -5,5 +5,7 @@
     - embassy_vars.yml
   user: root
   tasks:
-  - name: Deployment template file
+  - name: Configuring emb.xml
     action: template src=templates/emb.xml.j2 dest=/opt/emb.xml
+  - name: Configuring server.xml
+    action: template src=templates/tomcat_server.xml.j2 dest=/opt/server.xml

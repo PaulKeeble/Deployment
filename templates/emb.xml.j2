@@ -1,0 +1,53 @@
+<Context docBase="${catalina.base}/webapps/embassy.war" path="/embassy">
+	<!--
+	This file ends up in the RPM and will be deployed to:
+	
+	  /opt/TCT-EMB-LIVE/conf/Catalina/localhost/embassy.xml
+	  
+	It should contain details needed to run Embassy in a VLAB VM. Ops will
+	maintain a separate copy containing live configuration.
+	
+	Devs might find it useful to copy this file to:
+	
+	  src/main/webapp/META-INF/context.xml
+	  
+	and modifying for local use, since Tomcat (and Eclipse-managed Tomcat)
+	can pick up context from there.
+	-->
+	<Parameter name="config.service.url" value="http://10.10.1.61:6116/embassy-config-service" />
+	
+	<Parameter name="master.address" value="{{ master_address }}" />
+	
+	<!--
+	Keys can be generated using the embassy-tools keygen command.
+	-->
+	<!--
+	<Parameter name="embassy.key.enc" value="" />
+	<Parameter name="embassy.key.mac" value="" />
+	<Parameter name="mps.key.enc" value="" />
+	<Parameter name="mps.key.mac" value="" />
+	-->
+	
+	<!-- 
+        Timeout values for LDAP connectivity.
+	 -->
+	 <Parameter name="embassy.ldap.search.read.timout.millis" value="25000"/>
+     <Parameter name="embassy.ldap.search.connect.timout.millis" value="25000"/>
+     <Parameter name="embassy.ldap.authenticate.read.timout.millis" value="5000"/>
+     <Parameter name="embassy.ldap.authenticate.connect.timout.millis" value="5000"/>
+
+     <Parameter name="embassy.ldapservice.trustStore.path" value="@@EMBASSY_TRUSTSTORE_PATH@@"/>
+     <Parameter name="embassy.ldapservice.trustStore.password" value="@@EMBASSY_TRUSTSTORE_PASSWORD@@"/>
+     <Parameter name="embassy.ldapservice.trustStore.privateKey.password" value="@@EMBASSY_PRIVATEKEY_PASSWORD@@"/>
+
+     <Parameter name="embassy.one.time.key.email.reply.address" value="noreply@scansafe.net"/>
+     <Parameter name="embassy.one.time.key.expiry.time.seconds" value="600"/>
+
+     
+	<!-- This should contain a short (<16 chars) DC identifier, e.g. LON3 -->
+	<!--<Parameter name="embassy.datacentre" value="" />-->
+	
+	<Parameter name="smtp.hostname" value="@@SMTP_HOSTNAME@@" />
+	<Parameter name="smtp.port" value="@@SMTP_PORT@@" />
+     
+</Context>

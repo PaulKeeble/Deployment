@@ -1,5 +1,9 @@
 - hosts: all
+  vars:
+    master_address: 127.0.0.1/705
+  vars_files:
+    - embassy_vars.yml
   user: root
   tasks:
   - name: Deployment template file
-    action: template src=templates/emb.xml.j2 dest=/opt/TCT-EMB-LIVE/conf/Catalina/localhost/emb.xml
+    action: template src=templates/emb.xml.j2 dest=/opt/emb.xml

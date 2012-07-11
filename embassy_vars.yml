@@ -1,4 +1,5 @@
 embassy_dir: /opt
+log_dir: $embassy_dir/logs
 http_port: 6122
 ajp_port: 6123
 master_address: 127.0.0.1/705

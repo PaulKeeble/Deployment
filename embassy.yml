@@ -9,3 +9,7 @@
     action: template src=templates/emb.xml.j2 dest=$embassy_dir/emb.xml
   - name: Configuring server.xml
     action: template src=templates/tomcat_server.xml.j2 dest=$embassy_dir/server.xml
+  - name: Create app-conf directory
+    action: file path=$embassy_dir/app-conf owner=root group=root state=directory
+  - name: Configure logback.xml
+    action: template src=templates/logback.xml.j2 dest=$embassy_dir/app-conf/logback.xml

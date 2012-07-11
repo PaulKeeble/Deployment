@@ -1,0 +1,5 @@
+- hosts: all
+  user: root
+  tasks:
+  - name: Deployment template file
+    action: template src=templates/emb.xml.j2 dest=/opt/TCT-EMB-LIVE/conf/Catalina/localhost/emb.xml

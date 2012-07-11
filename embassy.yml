@@ -6,9 +6,11 @@
   user: root
   tasks:
   - name: Configuring emb.xml
-    action: template src=templates/emb.xml.j2 dest=$embassy_dir/emb.xml
+    action: template src=templates/emb.xml.j2 dest=$conf_dir/emb.xml
   - name: Configuring server.xml
-    action: template src=templates/tomcat_server.xml.j2 dest=$embassy_dir/server.xml
+    action: template src=templates/tomcat_server.xml.j2 dest=$conf_dir/server.xml
+  - name: Copy truststore
+    action: copy src=files/$truststore dest=$conf_dir/$truststore owner=root group=root mode=0666
   - name: Create app-conf directory
     action: file path=$embassy_dir/app-conf owner=root group=root state=directory
   - name: Configure logback.xml

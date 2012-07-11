@@ -1,5 +1,8 @@
-embassy_dir: /opt
+embassy_dir: /tmp/TCT-EMB-LIVE
+conf_dir: $embassy_dir/conf
 log_dir: $embassy_dir/logs
+truststore: dev-emb-ts.jks
+
 http_port: 6122
 ajp_port: 6123
 master_address: 127.0.0.1/705
@@ -7,7 +10,7 @@ embassy_key_enc: Uop0EBTxSL86Q3_LMrPyzcr7NIHtdMpkG2WDwL0ThNQ
 embassy_key_mac: POMVOcKbUmU8w2-wsI44GtPU_b5sZpCL7tJYwaB9njA 
 mps_key_enc: _lQ1vmwpYYOPV2x3sxMzT66N1e_vfs4rUD1Ptoc2iss
 mps_key_mac: dab6hD_4WTYn1ijIaKFYIsfj7xTrDgOeuVFf5hIERkU
-embassy_trustStore_path: /opt/TCT-EMB-LIVE/conf/emb.jks
+embassy_trustStore_path: $conf_dir/$truststore
 embassy_trustStore_password: Password1
 embassy_trustStore_private_password: Password1
 smpt_hostname: localhost

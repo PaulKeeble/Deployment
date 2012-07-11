@@ -3,6 +3,8 @@
     - embassy_vars.yml
   user: root
   tasks:
+  - name: stop embassy
+    action: service name=TCT-EMB-LIVE state=stopped
   - name: copy the rpm
     action: copy src=files/embassy.rpm dest=/tmp/embassy.rpm  
   - name: install the rpm
@@ -17,3 +19,5 @@
     action: file path=$embassy_dir/app-conf owner=root group=root state=directory
   - name: Configure logback.xml
     action: template src=templates/logback.xml.j2 dest=$embassy_dir/app-conf/logback.xml
+  - name: start embassy
+    action: service name=TCT-EMB-LIVE state=started

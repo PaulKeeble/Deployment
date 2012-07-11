@@ -1,6 +1,4 @@
 - hosts: all
-  vars:
-    master_address: 127.0.0.1/705
   vars_files:
     - embassy_vars.yml
   user: root
@@ -10,7 +8,7 @@
   - name: install the rpm
     action: command alien -i /tmp/embassy.rpm
   - name: Configuring emb.xml
-    action: template src=templates/emb.xml.j2 dest=$conf_dir/emb.xml
+    action: template src=templates/embassy.xml.j2 dest=$conf_dir/Catalina/localhost/embassy.xml
   - name: Configuring server.xml
     action: template src=templates/tomcat_server.xml.j2 dest=$conf_dir/server.xml
   - name: Copy truststore

@@ -1,4 +1,4 @@
-embassy_dir: /tmp/TCT-EMB-LIVE
+embassy_dir: /opt/TCT-EMB-LIVE
 conf_dir: $embassy_dir/conf
 log_dir: $embassy_dir/logs
 truststore: dev-emb-ts.jks
